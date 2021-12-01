@@ -3,7 +3,7 @@
 import setuptools
 
 try:
-    with open("README.markdown", "r") as fh:
+    with open("README.md", "r") as fh:
         long_description = fh.read()  # pylint: disable=invalid-name
 except FileNotFoundError:
     # pylint: disable=invalid-name
@@ -16,7 +16,7 @@ setuptools.setup(
     name="faker-edu",
     version="1.0.0",
     author="Allison Letts, Aaron Crosman, Paul Prescod",
-    author_email="DatagenToolkitTeam@invalid",
+    author_email="DatagenToolkitTeam@example.invalid",
     description="Provider for Faker which adds fake information about "
     "educational institutions and academics.",
     long_description=long_description,
@@ -28,7 +28,7 @@ setuptools.setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: BSD License",
         "Operating System :: OS Independent",
     ],
 )
