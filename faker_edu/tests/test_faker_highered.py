@@ -1,13 +1,14 @@
 import unittest
-from faker.generator import Generator
-from config import Provider
+from faker import Faker, Generator
+import faker_edu
 
 
 class HigheredProviderTestCase(unittest.TestCase):
     """Provider test case."""
 
     def setUp(self):
-        self.provider = Provider(Generator())
+        self.fake = Faker()
+        self.fake.add_provider(faker_edu.Provider)
 
     def test_lists_in_order(self):
         """Test interal values are in order."""
@@ -32,8 +33,8 @@ class HigheredProviderTestCase(unittest.TestCase):
 
     def test_words(self):
         """Test that generated string is at least two words long."""
-        name = self.provider.institution_name()
-        word_count = len(name.split())
+        result = self.fake.institution_name()
+        word_count = len(result.split())
         self.assertGreaterEqual(word_count, 2)
 
 
