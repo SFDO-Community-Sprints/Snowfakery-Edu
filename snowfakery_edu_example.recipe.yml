@@ -6,14 +6,16 @@
 # > set PYTHONPATH=.
 
 - plugin: faker_edu.Provider
-- object: school
+- object: Account
   fields:
-    name:
+    Name:
       fake: institution_name
 
-- object: professor
+- object: Contact
   fields:
-    name:
-      fake: name
-    title:
+    FirstName:
+      fake: first_name
+    LastName:
+      fake: last_name
+    Title:
       fake: faculty_title
