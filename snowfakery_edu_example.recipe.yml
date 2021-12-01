@@ -1,0 +1,21 @@
+# before you execute this you might need to set your
+# PYTHONPATH with a command like this:
+#
+# $ export PYTHONPATH=.
+# or
+# > set PYTHONPATH=.
+
+- plugin: faker_edu.Provider
+- object: Account
+  fields:
+    Name:
+      fake: institution_name
+
+- object: Contact
+  fields:
+    FirstName:
+      fake: first_name
+    LastName:
+      fake: last_name
+    Title:
+      fake: faculty_title
