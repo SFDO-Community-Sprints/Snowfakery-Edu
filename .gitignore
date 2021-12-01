@@ -128,3 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 scripts/scripts.py
+
+# Ignore IDE settings
+.vscode
+.atom
