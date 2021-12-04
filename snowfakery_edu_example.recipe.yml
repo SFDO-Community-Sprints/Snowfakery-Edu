@@ -11,6 +11,11 @@
     Name:
       fake: institution_name
 
+- object: Account
+  fields:
+    Name:
+      fake: department_name
+
 - object: Contact
   fields:
     FirstName:
