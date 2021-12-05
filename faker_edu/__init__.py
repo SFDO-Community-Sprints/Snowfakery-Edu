@@ -3,59 +3,67 @@ from faker.generator import Generator
 import faker.providers.address.en_US
 import random
 
-INSTITUTIONTYPES = {
-    'University',
-    'College',
-    'Junior College',
-    'State University'
-}
+INSTITUTIONTYPES = {"University", "College", "Junior College", "State University"}
 
 TOPICS = {
-    'Cloud',
-    'ABC Computing',
-    'Friendly',
-    'Sunshine',
-    'XYZ',
-    'Rainbow',
-    'Synergy',
-    'Supernova',
-    'Connected',
-    'Credentials',
-    'Snowflake',
-    'Salesforce',
-    'Worldview',
+    "Cloud",
+    "ABC Computing",
+    "Friendly",
+    "Sunshine",
+    "XYZ",
+    "Rainbow",
+    "Synergy",
+    "Supernova",
+    "Connected",
+    "Credentials",
+    "Snowflake",
+    "Salesforce",
+    "Worldview",
 }
-
+COLLEGES = {
+    "Business",
+    "Liberal Arts",
+    "Engineering and Applied Science",
+    "Education",
+    "Social Work",
+    "Art",
+    "Law",
+    "General Studies",
+    "Public Health",
+    "Health and Human Development",
+    "Medicine",
+    "Information Sciences and Technology",
+}
 DEPARTMENTS = {
-    'Accounting Division',
-    'African American and African Diaspora Studies',
-    'Africana Studies',
-    'Anesthesiology',
-    'Anthropology',
-    'Applied Physics and Applied Mathematics',
-    'Architecture',
-    'Art History',
-    'Archaeology',
-    'Asian and Middle Eastern Cultures',
-    'Astronomy and Astrophysics',
-    'Biochemistry and Molecular Biophysics',
-    'Biology',
-    'Biomedical Engineering',
-    'Cardiology',
-    'Chemistry',
-    'Civil Engineering',
-    'Classics',
-    'Classics and Ancient Studies',
-    'Computer Science',
-    'Dance',
-    'Decision, Risk, and Operations Division',
-    'Dermatology',
-    'Digestive and Liver Diseases',
-    'Earth and Environmental Sciences',
-    'East Asian Languages and Cultures',
-    'Ecology, Evolution and Environmental Biology',
-    'Economics',
-    'Electrical Engineering',
+    "Accounting Division": "Business",
+    "African American and African Diaspora Studies": "Liberal Arts",
+    "Africana Studies": "Liberal Arts",
+    "Anesthesiology": "Medicine",
+    "Anthropology": "Liberal Arts",
+    "Applied Physics and Applied Mathematics": "Engineering and Applied Science",
+    "Art History": "Liberal Arts",
+    "Archaeology": "Liberal Arts",
+    "Asian and Middle Eastern Cultures": "Liberal Arts",
+    "Astronomy and Astrophysics": "Engineering and Applied Science",
+    "Biochemistry and Molecular Biophysics": "Engineering and Applied Science",
+    "Biology": "Engineering and Applied Science",
+    "Biomedical Engineering": "Engineering and Applied Science",
+    "Cardiology": "Medicine",
+    "Chemistry": "Engineering and Applied Science",
+    "Civil Engineering": "Engineering and Applied Science",
+    "Classics": "Liberal Arts",
+    "Computer Science": "Engineering and Applied Science",
+    "Dance": "Art",
+    "Decision, Risk, and Operations Division": "Business",
+    "Dermatology": "Medicine",
+    "Digestive and Liver Diseases": "Medicine",
+    "Earth and Environmental Sciences": "Engineering and Applied Science",
+    "East Asian Languages and Cultures": "Liberal Arts",
+    "Ecology, Evolution and Environmental Biology": "Engineering and Applied Science",
+    "Economics": "Business",
+    "Electrical Engineering": "Engineering and Applied Science",
+}
+""" 
     'Endocrinology',
     'English and Comparative Literature',
     'Environmental Health Sciences',
@@ -115,20 +123,29 @@ DEPARTMENTS = {
     'Surgery',
     'Systems Biology',
     'Theatre',
-    'Visual Arts',
+    'Visual Arts', 
     'Writing'
-}
+"""
 
 FACULTYPOSITIONS = {
-    'Associate Professor',
-    'Professor',
-    'Assistant Professor',
-    'Professor Emeritus',
-    'Adjunct Professor',
-    'Lecturer',
-    'TA',
-    'Chair',
+    "Associate Professor",
+    "Professor",
+    "Assistant Professor",
+    "Professor Emeritus",
+    "Adjunct Professor",
+    "Lecturer",
+    "TA",
+    "Chair",
 }
+
+#  todo: create a university hierarchy
+# university -> college -> department -> major -> class
+
+
+class Person:
+    def __init__(self):
+        # todo: create a person sitch here
+        return
 
 
 class Provider(faker.providers.BaseProvider):
@@ -154,4 +171,4 @@ class Provider(faker.providers.BaseProvider):
     def faculty_title(self):
         position = self.faculty_position()
         department = self.department_name()
-        return position+" of "+department
+        return position + " of " + department
