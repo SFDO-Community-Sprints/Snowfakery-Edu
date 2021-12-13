@@ -3,39 +3,39 @@ from faker.generator import Generator
 import faker.providers.address.en_US
 import random
 
-INSTITUTIONTYPES = {
-    'University',
+INSTITUTIONTYPES = [
     'College',
     'Junior College',
     'State University'
-}
+    'University',
+]
 
-TOPICS = {
-    'Cloud',
+TOPICS = [
     'ABC Computing',
-    'Friendly',
-    'Sunshine',
-    'XYZ',
-    'Rainbow',
-    'Synergy',
-    'Supernova',
+    'Cloud',
     'Connected',
     'Credentials',
-    'Snowflake',
+    'Friendly',
+    'Rainbow',
     'Salesforce',
+    'Snowflake',
+    'Sunshine',
+    'Supernova',
+    'Synergy',
     'Worldview',
-}
+    'XYZ',
+]
 
-DEPARTMENTS = {
+DEPARTMENTS = [
     'Accounting Division',
     'African American and African Diaspora Studies',
     'Africana Studies',
     'Anesthesiology',
     'Anthropology',
     'Applied Physics and Applied Mathematics',
+    'Archaeology',
     'Architecture',
     'Art History',
-    'Archaeology',
     'Asian and Middle Eastern Cultures',
     'Astronomy and Astrophysics',
     'Biochemistry and Molecular Biophysics',
@@ -91,9 +91,8 @@ DEPARTMENTS = {
     'Pediatrics',
     'Pharmacology',
     'Philosophy',
-    'Philosophy',
-    'Physical Education & Recreation Program',
     'Physical Education',
+    'Physical Education & Recreation Program',
     'Physics',
     'Physiology and Cellular Biophysics',
     'Political Science',
@@ -105,7 +104,6 @@ DEPARTMENTS = {
     'Radiology',
     'Rehabilitation and Regenerative Medicine',
     'Religion',
-    'Religion',
     'Rheumatology',
     'Slavic Languages',
     'Sociology',
@@ -116,19 +114,20 @@ DEPARTMENTS = {
     'Systems Biology',
     'Theatre',
     'Visual Arts',
-    'Writing'
-}
+    'Writing',
+]
 
-FACULTYPOSITIONS = {
-    'Associate Professor',
-    'Professor',
-    'Assistant Professor',
-    'Professor Emeritus',
+FACULTYPOSITIONS = [
     'Adjunct Professor',
-    'Lecturer',
-    'TA',
+    'Assistant Professor',
+    'Associate Professor',
     'Chair',
-}
+    'Instructor',
+    'Lecturer',
+    'Professor',
+    'Professor Emeritus',
+    'Teaching Assitant',
+]
 
 
 class Provider(faker.providers.BaseProvider):
