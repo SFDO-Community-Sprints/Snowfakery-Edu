@@ -1,7 +1,5 @@
-from faker import Faker
 from faker.generator import Generator
 import faker.providers.address.en_US
-import random
 
 INSTITUTIONTYPES = {
     'University',
@@ -134,7 +132,6 @@ FACULTYPOSITIONS = {
 class Provider(faker.providers.BaseProvider):
     def institution_name(self):
         """Fake higher ed names."""
-        fake = Faker()
         fakeAddress = faker.providers.address.en_US.Provider(Generator())
 
         topicsinclstate = set(fakeAddress.states)
