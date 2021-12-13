@@ -1,4 +1,4 @@
-"""Provider for Faker which adds fake microservice names."""
+"""Provider for Faker which adds information about educational institutions and academics."""
 
 import setuptools
 
