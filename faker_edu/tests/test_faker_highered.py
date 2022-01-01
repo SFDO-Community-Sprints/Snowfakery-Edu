@@ -18,7 +18,7 @@ class HigheredProviderTestCase(unittest.TestCase):
                     self.assert_list_in_order(attr)
 
     def assert_list_in_order(self, the_list):
-        """Assert a list is in order."""
+        """Assert a list is in order, not a standalone test."""
         prev_value = ""
         for this_value in the_list:
             self.assertGreaterEqual(this_value, prev_value)
