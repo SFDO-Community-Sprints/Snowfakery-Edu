@@ -59,6 +59,11 @@ class HigheredProviderTestCase(unittest.TestCase):
         self.assertIn(parts[1], faker_edu.DEPARTMENTS,
                       'Position segment not from department list.')
 
+    def test_office_location(self):
+        """Test that the generated location is at least two words long."""
+        result = self.fake.office_location()
+        word_count = len(result.split())
+        self.assertGreaterEqual(word_count, 2)
 
 if __name__ == "__main__":
     unittest.main()

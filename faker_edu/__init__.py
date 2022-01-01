@@ -1,5 +1,5 @@
 from faker.generator import Generator
-import faker.providers.address.en_US
+import faker.providers.address.en_US, faker.providers.person.en_US
 
 INSTITUTIONTYPES = [
     'College',
@@ -151,3 +151,9 @@ class Provider(faker.providers.BaseProvider):
         position = self.faculty_position()
         department = self.department_name()
         return position+" of "+department
+
+    def office_location(self):
+        fakeName = faker.providers.person.en_US.Provider(Generator())
+        bldg = fakeName.last_name()
+        num = self.numerify("%##!")
+        return bldg+" "+num
