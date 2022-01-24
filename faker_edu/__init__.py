@@ -1,3 +1,4 @@
+from pickle import FALSE, TRUE
 from faker.generator import Generator
 import faker.providers.address.en_US
 
@@ -6,6 +7,15 @@ INSTITUTIONTYPES = [
     'Junior College',
     'State University',
     'University',
+]
+
+SECONDARYTYPES = [
+    'High',
+    'High School',
+    'Prep',
+    'Preparatory School',
+    'School',
+    'Unified High School',
 ]
 
 TOPICS = [
@@ -123,15 +133,14 @@ FACULTYPOSITIONS = [
     'Lecturer',
     'Professor',
     'Professor Emeritus',
-    'Teaching Assitant',
+    'Teaching Assistant',
 ]
 
 
 class Provider(faker.providers.BaseProvider):
     def institution_name(self):
-        """Fake higher ed names."""
+        """Fake higher education institution names."""
         fakeUsAddress = faker.providers.address.en_US.Provider(Generator())
-
         fullTopicList = set(TOPICS)
         usStates = set(fakeUsAddress.states)
         countryList = set(fakeUsAddress.countries)
@@ -140,6 +149,17 @@ class Provider(faker.providers.BaseProvider):
         suffix = self.random_element(INSTITUTIONTYPES)
         topic = self.random_element(fullTopicList)
         return " ".join([topic, suffix]).strip()
+
+    def highschool_name(self):
+        """Generate name of a high school."""
+        # Schools are named for people or places
+        prefix = self.generator.city()
+        if (self.random_element([TRUE, FALSE]) == TRUE):
+            prefix = self.generator.name()
+
+        suffix = self.random_element(SECONDARYTYPES)
+
+        return " ".join([prefix, suffix]).strip()
 
     def department_name(self):
         return self.random_element(DEPARTMENTS)
