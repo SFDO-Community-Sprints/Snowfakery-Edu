@@ -5,7 +5,7 @@ import faker.providers.address.en_US
 INSTITUTIONTYPES = [
     'College',
     'Junior College',
-    'State University'
+    'State University',
     'University',
 ]
 
@@ -19,10 +19,10 @@ SECONDARYTYPES = [
 ]
 
 TOPICS = [
-    'ABC Computing',
     'Cloud',
+    'Computing',
     'Connected',
-    'Credentials',
+    'Credentaliing',
     'Friendly',
     'Rainbow',
     'Salesforce',
@@ -31,7 +31,6 @@ TOPICS = [
     'Supernova',
     'Synergy',
     'Worldview',
-    'XYZ',
 ]
 
 DEPARTMENTS = [
@@ -141,13 +140,14 @@ FACULTYPOSITIONS = [
 class Provider(faker.providers.BaseProvider):
     def institution_name(self):
         """Fake higher education institution names."""
-        fakeAddress = faker.providers.address.en_US.Provider(Generator())
-
-        topicsinclstate = set(fakeAddress.states)
-        topicsinclstate.union(TOPICS)
+        fakeUsAddress = faker.providers.address.en_US.Provider(Generator())
+        fullTopicList = set(TOPICS)
+        usStates = set(fakeUsAddress.states)
+        countryList = set(fakeUsAddress.countries)
+        fullTopicList = fullTopicList.union(usStates)
+        fullTopicList = fullTopicList.union(countryList)
         suffix = self.random_element(INSTITUTIONTYPES)
-        topic = self.random_element(topicsinclstate)
-        # topic = str.title(fakeCompany.catch_phrase())
+        topic = self.random_element(fullTopicList)
         return " ".join([topic, suffix]).strip()
 
     def highschool_name(self):
