@@ -37,6 +37,12 @@ class HigheredProviderTestCase(unittest.TestCase):
         word_count = len(result.split())
         self.assertGreaterEqual(word_count, 2)
 
+    def test_high_school_name(self):
+        """Test that generated high school name is at least two words long."""
+        result = self.fake.highschool_name()
+        word_count = len(result.split())
+        self.assertGreaterEqual(word_count, 2)
+
     def test_department_name(self):
         """Test that generated department name is from the list."""
         dept = self.fake.department_name()
