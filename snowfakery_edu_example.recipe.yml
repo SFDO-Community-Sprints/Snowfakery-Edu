@@ -7,9 +7,15 @@
 
 - plugin: faker_edu.Provider
 - object: Account
+  nickname: college
   fields:
     Name:
       fake: institution_name
+- object: Account
+  nickname: highschool
+  fields:
+    Name: 
+      fake: highschool_name
 
 - object: Account
   fields:
