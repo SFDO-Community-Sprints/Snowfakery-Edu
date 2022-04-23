@@ -136,6 +136,31 @@ FACULTYPOSITIONS = [
     'Teaching Assistant',
 ]
 
+COLLEGETYPES = [
+    'Arts & Sciences',
+    'Literature, Science, & the Arts',
+    'Engineering',
+    'Business',
+    'Commerce',
+    'Medicine',
+    'Information',
+    'Kinesiology',
+    'Nursing',
+    'Law',
+    'Public Policy',
+    'Public Health',
+    'Architecture',
+    'Art & Design',
+    'Music',
+    'Theatre',
+    'Nursing',
+    'Pharmacy',
+    'Education',
+    'Dentistry',
+    'Journalism',
+    'Social Work'
+]
+
 
 class Provider(faker.providers.BaseProvider):
     def institution_name(self):
@@ -172,3 +197,26 @@ class Provider(faker.providers.BaseProvider):
         position = self.faculty_position()
         department = self.department_name()
         return position+" of "+department
+
+    def college_name(self):
+        college = self.random_element(['College', 'School'])
+        topic = self.random_element(COLLEGETYPES)
+        name = 'The '
+        if (self.random_element([TRUE, FALSE]) == TRUE):
+            fakeName = faker.providers.person.en_US.provider(Generator())
+            lasts = set(fakeName.last_names.keys())
+            last_name = self.random_element(lasts)
+            """Deciding if the College name will have first and last name, or just last name"""
+            if self.random_element([1, 2]) == 2:
+                female_firsts = set(fakeName.first_names_female.keys())
+                male_firsts = set(fakeName.first_names_male.keys())
+                firsts = female_firsts.union(male_firsts)
+                first_name = self.random_element(firsts)
+                name += first_name + ' '
+            name += last_name + ' '
+        name += college + ' of ' + topic
+        return name
+
+
+
+        
