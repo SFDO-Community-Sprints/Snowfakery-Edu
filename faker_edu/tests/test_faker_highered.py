@@ -1,7 +1,7 @@
 import unittest
 from faker import Faker, Generator
 import faker_edu
-
+import faker
 
 class HigheredProviderTestCase(unittest.TestCase):
     """Provider test case."""
@@ -64,6 +64,21 @@ class HigheredProviderTestCase(unittest.TestCase):
                       'Position segment not from position list.')
         self.assertIn(parts[1], faker_edu.DEPARTMENTS,
                       'Position segment not from department list.')
+
+    def test_facility_name(self):
+        facility_name = self.fake.facility_name()
+        parts = facility_name.split(' ')
+        fakeName = faker.providers.person.en_US.provider(Generator())
+        self.assertIn(parts[0], fakeName.last_names,
+                          'Position segment not from name dictionary')              
+        self.assertIn(' '.join(parts[1:-1]).strip(), faker_edu.DEPARTMENTS,
+                          'Position segment not from department list')
+        self.assertIn(parts[-1], faker_edu.FACILITYTYPES,
+                          'Position segment not from building list')
+        
+
+
+       
 
 
 if __name__ == "__main__":
