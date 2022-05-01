@@ -136,6 +136,35 @@ FACULTYPOSITIONS = [
     'Teaching Assistant',
 ]
 
+SPORTS = [
+    "Baseball",
+    "Basketball",
+    "Bowling",
+    "Cricket",
+    "Cross country",
+    "Curling",
+    "Fencing",
+    "Field hockey",
+    "Football",
+    "Golf",
+    "Gymnastics",
+    "Ice hockey",
+    "Lacrosse",
+    "Rifle",
+    "Rugby",
+    "Rowing",
+    "Skiing",
+    "Soccer",
+    "Softball",
+    "Swimming & Diving",
+    "Tennis",
+    "Track & field (indoor)",
+    "Track & field (outdoor)",
+    "Volleyball (indoor)",
+    "Volleyball (beach)",
+    "Water polo",
+    "Wrestling"
+]
 
 class Provider(faker.providers.BaseProvider):
     def institution_name(self):
@@ -172,3 +201,9 @@ class Provider(faker.providers.BaseProvider):
         position = self.faculty_position()
         department = self.department_name()
         return position+" of "+department
+
+    def sport(self):
+        genders = ["Men's", "Women's"]
+        gender = self.random_element(genders)
+        sport = self.random_element(SPORTS)
+        return gender + ' ' + sport

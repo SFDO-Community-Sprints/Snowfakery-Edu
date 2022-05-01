@@ -65,6 +65,17 @@ class HigheredProviderTestCase(unittest.TestCase):
         self.assertIn(parts[1], faker_edu.DEPARTMENTS,
                       'Position segment not from department list.')
 
+    def test_sports(self):
+        """Test that generated sport is from the list."""
+        for _ in range(10):
+            sport = self.fake.sport()
+            parts = sport.split()
+            self.assertTrue(len(parts) == 2, 'Missing a word')
+            self.assertIn(parts[0], ["Men's", "Women's"], 
+                        'Position segment not in gender list')
+            self.assertIn(parts[1], faker_edu.SPORTS, 
+                        'Position segment not in sports list')
+
 
 if __name__ == "__main__":
     unittest.main()
