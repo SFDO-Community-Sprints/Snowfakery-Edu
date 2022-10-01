@@ -160,8 +160,8 @@ SPORTS = [
     "Tennis",
     "Track & field (indoor)",
     "Track & field (outdoor)",
-    "Volleyball (indoor)",
     "Volleyball (beach)",
+    "Volleyball (indoor)",
     "Water polo",
     "Wrestling"
 ]
