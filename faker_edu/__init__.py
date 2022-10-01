@@ -175,38 +175,51 @@ FACILITYTYPES = [
     'Tower'
 ]
 
-COLLEGETYPES = [
-    'Architecture',
-    'Art & Design',
-    'Arts & Sciences',
-    'Business',
-    'Commerce',
-    'Dentistry',
-    'Education',
-    'Engineering',
-    'Information',
-    'Journalism',
-    'Kinesiology',
-    'Law',
-    'Literature, Science, & the Arts',
-    'Medicine',
-    'Music',
-    'Nursing',
-    'Pharmacy',
-    'Public Policy',
-    'Public Health',
-    'Social Work',
-    'Theatre'
-]
-
 ACADEMICDISCIPLINES = [
-    'Applied Sciences',
-    'Arts',
-    'Arts & Humanities',
+    'Agriculture',
+    'Anthropology',
+    'Applied science',
+    'Archaeology',
+    'Architecture and design',
+    'Biology',
+    'Business',
+    'Chemistry',
+    'Computer science',
+    'Divinity',
+    'Earth science',
+    'Economics',
+    'Education',
+    'Engineering and technology',
+    'Environmental studies and forestry',
+    'Family and consumer science',
+    'Formal science',
+    'Geography',
+    'History',
+    'Human physical performance and recreation',
     'Humanities',
-    'Liberal Arts',
-    'Natural Sciences',
-    'Social Sciences'
+    'Journalism, media studies and communication',
+    'Languages and literature',
+    'Law',
+    'Library and museum studies',
+    'Mathematics',
+    'Medicine and health',
+    'Military sciences',
+    'Natural science',
+    'Performing arts',
+    'Philosophy',
+    'Physics',
+    'Political science',
+    'Psychology',
+    'Public administration',
+    'Public policy',
+    'Religious Studies',
+    'Social science',
+    'Social work',
+    'Sociology',
+    'Space science',
+    'Theology',
+    'Transportation',
+    'Visual arts'
 ]
 
 class Provider(faker.providers.BaseProvider):
@@ -263,7 +276,7 @@ class Provider(faker.providers.BaseProvider):
 
     def college_name(self):
         college = self.random_element(['College', 'School'])
-        topic = self.random_element(COLLEGETYPES)
+        topic = self.random_element(ACADEMICDISCIPLINES)
         name = 'The '
         if (self.random_element([TRUE, FALSE]) == TRUE):
             fakeName = faker.providers.person.en_US.provider(Generator())
