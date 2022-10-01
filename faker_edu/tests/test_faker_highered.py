@@ -3,7 +3,7 @@ from faker import Faker, Generator
 import faker_edu
 import faker
 
-class HigheredProviderTestCase(unittest.TestCase):
+class HigherEdProviderTestCase(unittest.TestCase):
     """Provider test case."""
 
     def setUp(self):
