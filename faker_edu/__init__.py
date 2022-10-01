@@ -199,6 +199,16 @@ COLLEGETYPES = [
     'Theatre'
 ]
 
+ACADEMICDISCIPLINES = [
+    'Applied Sciences',
+    'Arts',
+    'Arts & Humanities',
+    'Humanities',
+    'Liberal Arts',
+    'Natural Sciences',
+    'Social Sciences'
+]
+
 class Provider(faker.providers.BaseProvider):
     def institution_name(self):
         """Fake higher education institution names."""
