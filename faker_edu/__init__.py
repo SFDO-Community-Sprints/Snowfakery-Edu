@@ -136,6 +136,16 @@ FACULTYPOSITIONS = [
     'Teaching Assistant',
 ]
 
+
+FACILITYTYPES = [
+    'Building',
+    'Center',
+    'Hall',
+    'Library',
+    'Lab',
+    'Tower'
+]
+
 COLLEGETYPES = [
     'Arts & Sciences',
     'Literature, Science, & the Arts',
@@ -198,6 +208,16 @@ class Provider(faker.providers.BaseProvider):
         department = self.department_name()
         return position+" of "+department
 
+    def facility_name(self):
+        fakeName = faker.providers.person.en_US.provider(Generator())
+        lasts = set(fakeName.last_names.keys())
+
+        last_name = self.random_element(lasts)
+        discipline = self.random_element(DEPARTMENTS)
+        building = self.random_element(FACILITYTYPES)
+        name = last_name + ' ' + discipline + ' ' + building
+        return name
+
     def college_name(self):
         college = self.random_element(['College', 'School'])
         topic = self.random_element(COLLEGETYPES)
@@ -216,7 +236,3 @@ class Provider(faker.providers.BaseProvider):
             name += last_name + ' '
         name += college + ' of ' + topic
         return name
-
-
-
-        
