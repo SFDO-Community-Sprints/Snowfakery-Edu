@@ -185,6 +185,7 @@ COLLEGETYPES = [
     'Education',
     'Engineering',
     'Information Technology',
+    'Journalism',
     'Kinesiology',
     'Law',
     'Literature, Science, & the Arts',
@@ -197,7 +198,6 @@ COLLEGETYPES = [
     'Social Work',
     'Theatre'
 ]
-
 
 class Provider(faker.providers.BaseProvider):
     def institution_name(self):
