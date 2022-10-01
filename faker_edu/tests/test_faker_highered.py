@@ -71,9 +71,9 @@ class HigheredProviderTestCase(unittest.TestCase):
             sport = self.fake.sport()
             parts = sport.split()
             self.assertTrue(len(parts) == 2, 'Missing a word')
-            self.assertIn(parts[0], ["Men's", "Women's"], 
+            self.assertIn(parts[0], ["Men's", "Women's"],
                         'Position segment not in gender list')
-            self.assertIn(parts[1], faker_edu.SPORTS, 
+            self.assertIn(parts[1], faker_edu.SPORTS,
                         'Position segment not in sports list')
 
     def test_facility_name(self):
@@ -81,12 +81,12 @@ class HigheredProviderTestCase(unittest.TestCase):
         parts = facility_name.split(' ')
         fakeName = faker.providers.person.en_US.provider(Generator())
         self.assertIn(parts[0], fakeName.last_names,
-                          'Position segment not from name dictionary')              
+                          'Position segment not from name dictionary')
         self.assertIn(' '.join(parts[1:-1]).strip(), faker_edu.DEPARTMENTS,
                           'Position segment not from department list')
         self.assertIn(parts[-1], faker_edu.FACILITYTYPES,
                           'Position segment not from building list')
-        
+
     def test_college_name(self):
         college_name = self.fake.college_name()
         self.assertTrue('The ' in college_name, 'Missing "The" in title')
@@ -114,8 +114,15 @@ class HigheredProviderTestCase(unittest.TestCase):
             self.assertIn(name[1], ['College', 'School'],
                           'Position segment not from school type list')
 
-        self.assertIn(parts[1], faker_edu.COLLEGETYPES,
+        self.assertIn(parts[1], faker_edu.ACADEMICDISCIPLINES,
                           'Position segment not from college type list')
+
+    def test_academic_discipline(self):
+        """Test that generated academic discipline is from the list."""
+        for _ in range(10):
+            discipline = self.fake.academic_discipline()
+            self.assertIn(discipline, faker_edu.ACADEMICDISCIPLINES,
+                        'Generated discipline not from list: ' + discipline)
 
 if __name__ == "__main__":
     unittest.main()
