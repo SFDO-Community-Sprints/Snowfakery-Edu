@@ -11,7 +11,7 @@ class HigherEdProviderTestCase(unittest.TestCase):
         self.fake.add_provider(faker_edu.Provider)
 
     def test_lists_in_order(self):
-        """Test interal values are in order."""
+        """Test internal values are in order."""
         for attr_name, attr in faker_edu.__dict__.items():
             with self.subTest(attr_name=attr_name):
                 if isinstance(attr, list):
@@ -80,7 +80,7 @@ class HigherEdProviderTestCase(unittest.TestCase):
     def test_facility_name(self):
         facility_name = self.fake.facility_name()
         parts = facility_name.split(' ')
-        fakeName = faker.providers.person.en_US.provider(Generator())
+        fakeName = faker.providers.person.en_US.Provider(Generator())
         self.assertIn(parts[0], fakeName.last_names,
                           'Position segment not from name dictionary')
         self.assertIn(' '.join(parts[1:-1]).strip(), faker_edu.DEPARTMENTS,
@@ -95,7 +95,7 @@ class HigherEdProviderTestCase(unittest.TestCase):
         parts = college_name.split(' of ')
         name = parts[0].split()
         if len(name) == 4:
-            fakeName = faker.providers.person.en_US.provider(Generator())
+            fakeName = faker.providers.person.en_US.Provider(Generator())
             female_firsts = set(fakeName.first_names_female.keys())
             male_firsts = set(fakeName.first_names_male.keys())
             firsts = female_firsts.union(male_firsts)
@@ -106,7 +106,7 @@ class HigherEdProviderTestCase(unittest.TestCase):
             self.assertIn(name[3], ['College', 'School'],
                           'Position segment not from school type list')
         elif len(name) == 3:
-            fakeName = faker.providers.person.en_US.provider(Generator())
+            fakeName = faker.providers.person.en_US.Provider(Generator())
             self.assertIn(name[1], fakeName.last_names,
                           'Position segment not from last name dictionary')
             self.assertIn(name[2], ['College', 'School'],
