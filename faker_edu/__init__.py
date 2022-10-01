@@ -151,8 +151,8 @@ SPORTS = [
     "Ice hockey",
     "Lacrosse",
     "Rifle",
-    "Rugby",
     "Rowing",
+    "Rugby",
     "Skiing",
     "Soccer",
     "Softball",
@@ -176,30 +176,28 @@ FACILITYTYPES = [
 ]
 
 COLLEGETYPES = [
-    'Arts & Sciences',
-    'Literature, Science, & the Arts',
-    'Engineering',
-    'Business',
-    'Commerce',
-    'Medicine',
-    'Information',
-    'Kinesiology',
-    'Nursing',
-    'Law',
-    'Public Policy',
-    'Public Health',
     'Architecture',
     'Art & Design',
+    'Arts & Sciences',
+    'Business',
+    'Commerce',
+    'Dentistry',
+    'Education',
+    'Engineering',
+    'Information',
+    'Journalism',
+    'Kinesiology',
+    'Law',
+    'Literature, Science, & the Arts',
+    'Medicine',
     'Music',
-    'Theatre',
     'Nursing',
     'Pharmacy',
-    'Education',
-    'Dentistry',
-    'Journalism',
-    'Social Work'
+    'Public Policy',
+    'Public Health',
+    'Social Work',
+    'Theatre'
 ]
-
 
 class Provider(faker.providers.BaseProvider):
     def institution_name(self):
