@@ -139,6 +139,7 @@ FACULTYPOSITIONS = [
 SPORTS = [
     "Baseball",
     "Basketball",
+    "Beach Volleyball",
     "Bowling",
     "Cricket",
     "Cross country",
@@ -149,6 +150,7 @@ SPORTS = [
     "Golf",
     "Gymnastics",
     "Ice hockey",
+    "Indoor Track",
     "Lacrosse",
     "Rifle",
     "Rowing",
@@ -158,10 +160,8 @@ SPORTS = [
     "Softball",
     "Swimming & Diving",
     "Tennis",
-    "Track & field (indoor)",
-    "Track & field (outdoor)",
-    "Volleyball (beach)",
-    "Volleyball (indoor)",
+    "Track",
+    "Volleyball",
     "Water polo",
     "Wrestling"
 ]
@@ -170,8 +170,8 @@ FACILITYTYPES = [
     'Building',
     'Center',
     'Hall',
-    'Library',
     'Lab',
+    'Library',
     'Tower'
 ]
 
@@ -265,7 +265,7 @@ class Provider(faker.providers.BaseProvider):
         return gender + ' ' + sport
 
     def facility_name(self):
-        fakeName = faker.providers.person.en_US.provider(Generator())
+        fakeName = faker.providers.person.en_US.Provider(Generator())
         lasts = set(fakeName.last_names.keys())
 
         last_name = self.random_element(lasts)
@@ -279,7 +279,7 @@ class Provider(faker.providers.BaseProvider):
         topic = self.random_element(ACADEMICDISCIPLINES)
         name = 'The '
         if (self.random_element([TRUE, FALSE]) == TRUE):
-            fakeName = faker.providers.person.en_US.provider(Generator())
+            fakeName = faker.providers.person.en_US.Provider(Generator())
             lasts = set(fakeName.last_names.keys())
             last_name = self.random_element(lasts)
             """Deciding if the College name will have first and last name, or just last name"""
