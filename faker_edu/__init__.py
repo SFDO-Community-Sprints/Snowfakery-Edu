@@ -175,28 +175,51 @@ FACILITYTYPES = [
     'Tower'
 ]
 
-COLLEGETYPES = [
-    'Architecture',
-    'Art & Design',
-    'Arts & Sciences',
+ACADEMICDISCIPLINES = [
+    'Agriculture',
+    'Anthropology',
+    'Applied science',
+    'Archaeology',
+    'Architecture and design',
+    'Biology',
     'Business',
-    'Commerce',
-    'Dentistry',
+    'Chemistry',
+    'Computer science',
+    'Divinity',
+    'Earth science',
+    'Economics',
     'Education',
-    'Engineering',
-    'Information Technology',
-    'Journalism',
-    'Kinesiology',
+    'Engineering and technology',
+    'Environmental studies and forestry',
+    'Family and consumer science',
+    'Formal science',
+    'Geography',
+    'History',
+    'Human physical performance and recreation',
+    'Humanities',
+    'Journalism, media studies and communication',
+    'Languages and literature',
     'Law',
-    'Literature, Science, & the Arts',
-    'Medicine',
-    'Music',
-    'Nursing',
-    'Pharmacy',
-    'Public Health',
-    'Public Policy',
-    'Social Work',
-    'Theatre'
+    'Library and museum studies',
+    'Mathematics',
+    'Medicine and health',
+    'Military sciences',
+    'Natural science',
+    'Performing arts',
+    'Philosophy',
+    'Physics',
+    'Political science',
+    'Psychology',
+    'Public administration',
+    'Public policy',
+    'Religious Studies',
+    'Social science',
+    'Social work',
+    'Sociology',
+    'Space science',
+    'Theology',
+    'Transportation',
+    'Visual arts'
 ]
 
 class Provider(faker.providers.BaseProvider):
@@ -253,7 +276,7 @@ class Provider(faker.providers.BaseProvider):
 
     def college_name(self):
         college = self.random_element(['College', 'School'])
-        topic = self.random_element(COLLEGETYPES)
+        topic = self.random_element(ACADEMICDISCIPLINES)
         name = 'The '
         if (self.random_element([TRUE, FALSE]) == TRUE):
             fakeName = faker.providers.person.en_US.Provider(Generator())
@@ -269,3 +292,7 @@ class Provider(faker.providers.BaseProvider):
             name += last_name + ' '
         name += college + ' of ' + topic
         return name
+
+    def academic_discipline(self):
+        """Provides an academic discipline."""
+        return self.random_element(ACADEMICDISCIPLINES)

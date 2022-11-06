@@ -115,8 +115,15 @@ class HigherEdProviderTestCase(unittest.TestCase):
             self.assertIn(name[1], ['College', 'School'],
                           'Position segment not from school type list')
 
-        self.assertIn(parts[1], faker_edu.COLLEGETYPES,
+        self.assertIn(parts[1], faker_edu.ACADEMICDISCIPLINES,
                           'Position segment not from college type list')
+
+    def test_academic_discipline(self):
+        """Test that generated academic discipline is from the list."""
+        for _ in range(10):
+            discipline = self.fake.academic_discipline()
+            self.assertIn(discipline, faker_edu.ACADEMICDISCIPLINES,
+                        'Generated discipline not from list: ' + discipline)
 
 if __name__ == "__main__":
     unittest.main()
