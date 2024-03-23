@@ -14,7 +14,7 @@ except FileNotFoundError:
 
 setuptools.setup(
     name="faker-edu",
-    version="1.0.0",
+    version="1.1.0",
     author="Allison Letts, Aaron Crosman, Paul Prescod",
     author_email="DatagenToolkitTeam@example.invalid",
     description="Provider for Faker which adds fake information about "
@@ -28,6 +28,8 @@ setuptools.setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "License :: OSI Approved :: BSD License",
         "Operating System :: OS Independent",
     ],
